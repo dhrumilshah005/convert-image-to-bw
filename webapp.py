@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-st.title("Convert an Image to Black and White")
+st.header("Convert an Image to Black and White")
 with st.expander("Start Camera"):
     camera_image = st.camera_input("camera")
 if camera_image:
