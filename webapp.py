@@ -8,7 +8,6 @@ with st.expander("Upload Image"):
 with st.expander("Start Camera"):
     camera_image = st.camera_input("camera",key="camera")
 st.button("Convert to B&W",key="button")
-st.button("Start again",key="restart")
 
 if "uploader" not in st.session_state:
     st.session_state["uploader"] = 0
@@ -24,10 +23,5 @@ elif st.session_state["uploader"] and st.session_state["button"]:
     gray_img = img.convert("L")
     st.write("Black and White image")
     st.image(gray_img)
-
-
-if st.session_state["restart"]:
-    st.session_state["uploader"] += 1
-    st.rerun()
-    st.session_state.clear()
-    st.cache_data.clear()
+elif st.session_state["button"]:
+    st.warning("Please click/upload an image! ")
